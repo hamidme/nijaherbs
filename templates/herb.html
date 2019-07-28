@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section id="herb-display">
+    <div class="container herb-container">
+      <div class="row">
+          
+        <div class="col-md-6">
+          <div class="card">
+            <div id="card-main" class="card-body">
+                <h4 class="card-title">{{ herb.local_Name }} ( {{ herb.english_Name }} )</h4>
+                <p class="text-muted text-uppercase">{{ herb.category }}</p>
+            </div>
+            <img class="card-img-top img-fluid" src="{{ herb.image.url }}" alt="{{ herb.english_Name }}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
+                  <p class="herb-xter">Common name: <span class="text-muted">{{ herb.english_Name }}</span></p><hr>
+                  <p class="herb-xter">Local name: <span class="text-muted">{{ herb.local_Name }}</span></p><hr>
+                  <p class="herb-xter">Botanical name: <span class="text-muted">{{ herb.botanical_Name }}</span></p><hr>
+                  <p class="herb-xter">Region popular: <span class="text-muted">{{ herb.region }}</span></p><hr>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="herb-detail">
+      <div class="container herb-container py-1">
+        <div class="row">
+          <div class="col-md-12">
+      
+            <div class="card">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a data-toggle="tab" href="#description" class="nav-link active">Description</a>
+                  </li>
+                  <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link" href="#benefits">Health Benefits</a>
+                  </li>
+                  <li class="nav-item">
+                      <a data-toggle="tab" class="nav-link" href="#uses">Uses</a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="tab-content">
+                <div id="description" class="card-body tab-pane fade show active">
+                  <p class="card-text">{{ herb.description }}
+                  </p>
+                </div>
+                <div id="benefits" class="card-body tab-pane fade">
+                    <p class="card-text">{{ herb.health_benefits}}</p>
+                  </div>
+                  <div id="uses" class="card-body tab-pane fade">
+                      <p class="card-text">{{ herb.uses }}
+                    </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock content %}

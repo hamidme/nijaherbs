@@ -1,0 +1,1 @@
+Pushing my first django app to github
