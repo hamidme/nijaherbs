@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nijaherbs.apps.NijaherbsConfig', #new
+    'django_filters', #new
 ]
 
 MIDDLEWARE = [

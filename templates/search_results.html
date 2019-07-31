@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--Hero section-->
+<section id="search" class="py-5">
+    <div class="primary-overlay text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form action="{% url 'search_results' %}" method="GET" class="search-form">
+              <div class="input-group mb-3">
+                  <input name="q" type="text" class="form-control search-bar" placeholder="I'm looking for e.g. ewedu, ugu, baobab...">
+                  <div class="input-group-append search-bar">
+                    <span class="input-group-text fa-search-bar">
+                        <button class="btn" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+<section id="feature-search-list" class="py-5">
+    <div id="herb-search-list" class="container card">
+        <div class="row">
+                            {% for herb in object_list %} 
+                        <div class="col-md-3 card-body">
+                        <img class="card-img-top img-fluid" src="{{ herb.image.url }}" alt="">
+                        </div>
+                        <div class="col-md-5 card-body">
+                                    <h5 class="card-title">
+                                    {{ herb.english_Name }} ( {{ herb.local_Name }} )
+                                    </h5><hr>
+                                    <p class="card-text">
+                                        {{ herb.summary }} 
+                                    </p> 
+                        </div>
+                        <div class="col-md-4 card-body">
+                                    <div class="herb-attribute">
+                                        <p class="herb-xter">Local name: <span class="text-muted">{{ herb.local_Name }} </span></p><hr>
+                                        <p class="herb-xter">Botanical name: <span class="text-muted">{{ herb.botanical_Name }} </span></p><hr>
+                                        <p class="herb-xter">Region popular: <span class="text-muted">{{ herb.region }} </span></p><hr>
+                                        <p class="herb-xter herb-category text-muted">Category: <span class="text-muted">{{ herb.category}}</span</p>
+                                        <a class="btn btn-info float-right" href="{% url  'herb' herb.pk  %}">Read More</a>
+                                    </div>
+                        </div> 
+                        {% endfor %}  
+                </div>
+            </div>  
+        </div>
+      
+      </div>
+</section>
+
+{% endblock content %}

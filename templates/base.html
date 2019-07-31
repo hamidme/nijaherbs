@@ -18,13 +18,22 @@
             <a href="{% url  'home'  %}" class="navbar-brand"> <h3>NAIJA HERBS</h3></a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                <a href="#" class="nav-link">EDIBLE HERBS</a>
+                <a href="{% url  'edible'  %}" class="nav-link">EDIBLE HERBS</a>
                 </li>
                 <li class="nav-item">
-                <a href="#" class="nav-link">MEDICINAL HERBS</a>
+                <a href="{% url  'medicinal'  %}" class="nav-link">MEDICINAL HERBS</a>
                 </li>
-                <li class="nav-item">
-                <a href="#" class="nav-link">HERBS BY REGION</a>
+        
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    HERBS BY REGION
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">HAUSA</a>
+                    <a class="dropdown-item" href="#">IBO</a>
+                    <a class="dropdown-item" href="#">YORUBA</a>
+                  </div>
+  
                 </li>
                 <li>
                     <a class="btn btn-info" href="#" role="button">POST A HERB</a>

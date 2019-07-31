@@ -35,6 +35,10 @@ class Herb(models.Model):
     botanical_Name = models.CharField(max_length=200)
     region = models.ForeignKey('Region', on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ('-created_on',)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -43,7 +47,3 @@ class Herb(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail record for this herb."""
         return reverse('herb', args=[str(self.id)])
-
-
-
-
